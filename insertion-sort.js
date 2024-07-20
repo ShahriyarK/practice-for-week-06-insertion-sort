@@ -19,6 +19,29 @@ function insertionSort(arr) {
   */
 
   // Your code here
+  const unsortedArr = arr.slice();
+  const sortedArr = [];
+  // walk through the unsorted array while it is not empty
+  while (unsortedArr.length > 0) {
+    console.log(sortedArr.join(','))
+    // create j to identify the insertion poistion
+    // pop the element from the unsorted array
+    const elementToInsert = unsortedArr.pop();
+    // make a slot for new insertion
+    sortedArr.push(null);
+    let j = sortedArr.length - 1;
+    while (j > 0) {
+      // check to the left of the new position to see if shifting is required
+      if (sortedArr[j - 1] > elementToInsert) {
+        sortedArr[j] = sortedArr[j - 1];
+        j--;
+      } else {
+        break;
+      }
+    }
+    sortedArr[j] = elementToInsert;
+  }
+  return sortedArr;
 }
 
 // In-place Insertion Sort
@@ -39,8 +62,29 @@ function insertionSortInPlace(arr) {
   - Increment the dividing pointer and repeat
   Return the mutated array
   */
-
-  // Your code here
+ // Your code here
+ let divider = 1;
+ while (divider < arr.length) {
+  console.log(arr.join(','))
+   // create a variable j to track our insertion point
+   let j = divider;
+   // store the element at current divider position in temp
+   let temp = arr[divider];
+   // iterate through the left half of the divider while shifting that half until we reach a value
+   // that is less than the val at the divider
+   while (j > 0) {
+     // if the element to the left of the current insertion position is greater, then shift it by 1
+     if (arr[j - 1] > temp) {
+       arr[j] = arr[j - 1];
+       j--;
+     } else {
+       break;
+      }
+    }
+    arr[j] = temp;
+    divider++;
+ }
+ return arr;
 }
 
 module.exports = [insertionSort, insertionSortInPlace];
