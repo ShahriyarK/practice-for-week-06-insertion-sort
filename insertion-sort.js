@@ -23,7 +23,7 @@ function insertionSort(arr) {
   const sortedArr = [];
   // walk through the unsorted array while it is not empty
   while (unsortedArr.length > 0) {
-    console.log(sortedArr.join(','))
+    // console.log(sortedArr.join(','))
     // create j to identify the insertion poistion
     // pop the element from the unsorted array
     const elementToInsert = unsortedArr.pop();
@@ -65,7 +65,7 @@ function insertionSortInPlace(arr) {
  // Your code here
  let divider = 1;
  while (divider < arr.length) {
-  console.log(arr.join(','))
+  // console.log(arr.join(','))
    // create a variable j to track our insertion point
    let j = divider;
    // store the element at current divider position in temp
